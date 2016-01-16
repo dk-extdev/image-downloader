@@ -1,0 +1,24 @@
+{
+   "browser_action": {
+      "default_icon": "images/button.png",
+      "default_popup": "popup.html"
+   },
+   "content_scripts": [ {
+      "js": [ "js/jquery-1.10.2.min.js","js/script.js"],
+      "matches": [ "http://www.pinterest.com/*" ],
+      "run_at": "document_end"
+   } ],
+   "background": {
+    "scripts": ["js/background.js"]
+  },
+   "description": "",
+   "icons": {
+      "48": "images/icon.png"
+   },
+   "manifest_version": 2,
+   "name": "Pinterest Image Downloader",
+   "permissions": [ "tabs", "chrome://favicon/", "http://*/*", "https://*/*", "storage" ],
+   "web_accessible_resources": ["js/background.js", "js/popup.js", "js/script.js"],
+   "content_security_policy": "default-src 'self' *.pinterest.com *.pinimg.com *.google.com connect.facebook.net *.google-analytics.com https://*.facebook.com *.facebook.com www.googleadservices.com googleads.g.doubleclick.net *.tiles.mapbox.com *.4sqi.net media.pinterest.com.s3.amazonaws.com 'unsafe-inline' 'unsafe-eval';script-src 'self' 'unsafe-eval'; object-src 'self';frame-src 'self'",
+   "version": "1.0"
+}
